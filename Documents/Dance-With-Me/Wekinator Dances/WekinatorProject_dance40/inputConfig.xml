@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<OSCInputGroup>
+  <oscMessage>/oscCustomFeatures/limbs</oscMessage>
+  <numInputs>15</numInputs>
+  <groupName>Inputs</groupName>
+  <inputNames>
+    <string>limbs-1</string>
+    <string>limbs-2</string>
+    <string>limbs-3</string>
+    <string>limbs-4</string>
+    <string>limbs-5</string>
+    <string>limbs-6</string>
+    <string>limbs-7</string>
+    <string>limbs-8</string>
+    <string>limbs-9</string>
+    <string>limbs-10</string>
+    <string>limbs-11</string>
+    <string>limbs-12</string>
+    <string>limbs-13</string>
+    <string>limbs-14</string>
+    <string>limbs-15</string>
+  </inputNames>
+</OSCInputGroup>

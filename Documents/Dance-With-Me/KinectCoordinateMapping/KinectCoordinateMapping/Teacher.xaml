@@ -1,0 +1,65 @@
+﻿<Window x:Class="KinectCoordinateMapping.Teacher"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Teacher"
+        Loaded="Window_Loaded" Closed="Window_Closed" WindowStyle="ToolWindow" Left="0" Top="0" Width="{DynamicResource {x:Static SystemParameters.FullPrimaryScreenWidthKey}}" Height="{DynamicResource {x:Static SystemParameters.FullPrimaryScreenHeightKey}}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="225*"/>
+            <ColumnDefinition Width="369*" />
+            <ColumnDefinition Width="70*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+
+        <Image Name="camera" Width="Auto" Height="Auto" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Canvas Name="canvas" Width="Auto" Height="Auto" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Button Content="Toggle Skeleton" HorizontalAlignment="Left" Height="20" Width="100" Margin="16,310,0,0" VerticalAlignment="Top" Click="Button_Click" Grid.Row="1" Grid.Column="2"/>
+
+        <Button x:Name="btn_Dance1" Content="Dance 1" HorizontalAlignment="Left" Height="20" Width="100" Margin="16,12,0,0" VerticalAlignment="Top" Click="Dance_Click" Grid.Column="2"/>
+        <Button x:Name="btn_Dance2" Content="Dance 2" HorizontalAlignment="Left" Height="20" Width="100" Margin="16,37,0,0" VerticalAlignment="Top" Click="Dance_Click" Grid.Column="2"/>
+        <Button x:Name="btn_Dance3" Content="Dance 3" HorizontalAlignment="Left" Height="20" Width="100" Margin="16,62,0,0" VerticalAlignment="Top" Click="Dance_Click" Grid.Column="2"/>
+        <Button x:Name="btn_Dance4" Content="Dance 4" HorizontalAlignment="Left" Height="20" Width="100" Margin="16,87,0,0" VerticalAlignment="Top" Click="Dance_Click" Grid.Column="2"/>
+
+        <Button x:Name="btn_TeacherMode" Content="Teacher Mode" HorizontalAlignment="Left" Height="20" Width="100" Margin="16,285,0,0" VerticalAlignment="Top" Click="Mode_Click" Grid.Row="1" Grid.Column="2"/>
+        <Button x:Name="btn_StudentMode" Content="Student Mode" HorizontalAlignment="Left" Height="20" Width="100" Margin="16,260,0,0" VerticalAlignment="Top" Click="Mode_Click" Grid.Row="1" Grid.Column="2"/>
+        <Button x:Name="btn_TeacherRecord" Content="Record Limb Angles" HorizontalAlignment="Left" Height="20" Width="120" Margin="5,37,0,0" VerticalAlignment="Top" Click="Mode_Click" Grid.Row="1" Grid.Column="2"/>
+
+        <CheckBox x:Name="cbox_Audio" Content="Audio" Grid.Column="2" Margin="5,0,0,26" Click="cbox_click" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <CheckBox x:Name="cbox_Video" Content="Video" Grid.Column="2" Margin="5,0,0,8" Click="cbox_click" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <Label x:Name="lbl_Score" Content="Score: -" HorizontalAlignment="Right" Margin="0,10,40,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Grid.Column="1"/>
+
+        <ComboBox x:Name="cmbox_dances" Grid.Row ="1" Grid.Column="2" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="100" Height="20" SelectedIndex="0">
+            <ComboBoxItem Content="Dance 1"/>
+            <ComboBoxItem Content="Dance 2"/>
+            <ComboBoxItem Content="Dance 3"/>
+            <ComboBoxItem Content="Dance 4"/>
+        </ComboBox>
+
+        <Grid x:Name="videoGrid" Grid.Column="0" Grid.Row="0" Height="Auto" Width="Auto" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <MediaElement x:Name="video" Height="Auto" Grid.Column="0" Grid.Row="0" Width="Auto" LoadedBehavior="Manual" RenderTransformOrigin="0.5,0.5">
+                <MediaElement.RenderTransform>
+                    <ScaleTransform ScaleX="-1"/>
+                </MediaElement.RenderTransform>
+            </MediaElement>
+
+            <Button x:Name="btn_Start" Content="Play" HorizontalAlignment="Left" Height="20" Width="50" Margin="299,2,0,0" VerticalAlignment="Top" Click="player_Click" Grid.Row="1"/>
+            <Button x:Name="btn_Stop" Content="Stop" HorizontalAlignment="Left" Height="20" Width="50" Margin="407,2,0,0" VerticalAlignment="Top" Click="player_Click" Grid.Row="1"/>
+            <Button x:Name="btn_Pause" Content="Pause" HorizontalAlignment="Left" Height="20" Width="50" Margin="353,2,0,0" VerticalAlignment="Top" Click="player_Click" Grid.Row="1"/>
+            <Slider Name="sliProgress" Thumb.DragStarted="sliProgress_DragStarted"  Thumb.DragCompleted="sliProgress_DragCompleted" HorizontalAlignment="Left" Margin="8,3,0,0" Grid.Row="1" VerticalAlignment="Top" Width="229"/>
+            <Label x:Name="lbl_DanceName" Content="-" HorizontalAlignment="Right" Margin="0,0,35,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold"/>
+            <Button x:Name="btn_Mute" Content="Mute" HorizontalAlignment="Left" Height="20" Width="50" Margin="245,2,0,0" VerticalAlignment="Top" Click="player_Click" Grid.Row="1"/>
+            <Image x:Name="img_mute" Margin="407,37,37,189" Source="mute2.png" Stretch="Fill" Visibility="Hidden"/>
+        </Grid>
+
+    </Grid>
+</Window>
